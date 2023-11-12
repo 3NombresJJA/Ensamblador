@@ -1,0 +1,142 @@
+\doxysection{C\+:/\+Users/\+KADDEX/\+Desktop/\+Seguridad\+Maquina\+Estados/\+Seguridad\+\_\+\+Box.X/lcd.h File Reference}
+\label{lcd_8h}\index{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.h@{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ RS}~RD0         /$\ast$PIN 0 of PORTD is assigned for register select Pin of LCD$\ast$/
+\item 
+\#define \textbf{ EN}~RD1         /$\ast$PIN 1 of PORTD is assigned for enable Pin of LCD $\ast$/
+\item 
+\#define \textbf{ ldata}~PORTD      /$\ast$PORTD(PD4-\/PD7) is assigned for LCD Data Output$\ast$/
+\item 
+\#define \textbf{ LCD\+\_\+\+Port}~TRISD   /$\ast$define macros for PORTD Direction Register$\ast$/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ LCD\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Command} (unsigned char)
+\begin{DoxyCompactList}\small\item\em Envía un comando a la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Char} (unsigned char x)
+\begin{DoxyCompactList}\small\item\em Muestra un carácter en la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+String} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Muestra una cadena en la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+String\+\_\+xy} (char, char, const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Muestra una cadena en una posición específica de la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Clear} (void)
+\begin{DoxyCompactList}\small\item\em Limpia la pantalla de la LCD 16x2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\label{lcd_8h_a22e6626f2c98ed902f8ded47f6438c05} 
+\index{lcd.h@{lcd.h}!EN@{EN}}
+\index{EN@{EN}!lcd.h@{lcd.h}}
+\doxysubsubsection{EN}
+{\footnotesize\ttfamily \#define EN~RD1         /$\ast$PIN 1 of PORTD is assigned for enable Pin of LCD $\ast$/}
+
+\label{lcd_8h_aa1454638c60ba2bfd8885e763b6e637b} 
+\index{lcd.h@{lcd.h}!LCD\_Port@{LCD\_Port}}
+\index{LCD\_Port@{LCD\_Port}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_Port}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+Port~TRISD   /$\ast$define macros for PORTD Direction Register$\ast$/}
+
+\label{lcd_8h_a9ab6954b25558526556ab556c4be540b} 
+\index{lcd.h@{lcd.h}!ldata@{ldata}}
+\index{ldata@{ldata}!lcd.h@{lcd.h}}
+\doxysubsubsection{ldata}
+{\footnotesize\ttfamily \#define ldata~PORTD      /$\ast$PORTD(PD4-\/PD7) is assigned for LCD Data Output$\ast$/}
+
+\label{lcd_8h_af8903d8eea3868940c60af887473b152} 
+\index{lcd.h@{lcd.h}!RS@{RS}}
+\index{RS@{RS}!lcd.h@{lcd.h}}
+\doxysubsubsection{RS}
+{\footnotesize\ttfamily \#define RS~RD0         /$\ast$PIN 0 of PORTD is assigned for register select Pin of LCD$\ast$/}
+
+
+
+\doxysubsection{Function Documentation}
+\label{lcd_8h_aabb29c7a1ecbadd623142601b109caff} 
+\index{lcd.h@{lcd.h}!LCD\_Char@{LCD\_Char}}
+\index{LCD\_Char@{LCD\_Char}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_Char()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{dat }\end{DoxyParamCaption})}
+
+
+
+Muestra un carácter en la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dat} & Carácter a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}
+\label{lcd_8h_ae60d0b62d7eb3fa31266c095d7b3c245} 
+\index{lcd.h@{lcd.h}!LCD\_Clear@{LCD\_Clear}}
+\index{LCD\_Clear@{LCD\_Clear}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_Clear()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Limpia la pantalla de la LCD 16x2. 
+
+Esta función limpia la pantalla de la LCD 16x2. \label{lcd_8h_a28735c052c54fa576f8f6f8bca963fe4} 
+\index{lcd.h@{lcd.h}!LCD\_Command@{LCD\_Command}}
+\index{LCD\_Command@{LCD\_Command}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_Command()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Command (\begin{DoxyParamCaption}\item[{unsigned char}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Envía un comando a la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Comando a ejecutar en la pantalla LCD (ejemplo\+: 0x01 para limpiar la pantalla, 0x0C para mostrar con cursor apagado). \\
+\hline
+\end{DoxyParams}
+\label{lcd_8h_aa53c9d40f3aa552a9974cd55ac510cb3} 
+\index{lcd.h@{lcd.h}!LCD\_Init@{LCD\_Init}}
+\index{LCD\_Init@{LCD\_Init}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_Init()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla LCD 16x2. 
+
+Esta función inicializa la pantalla LCD 16x2 con configuraciones específicas. \label{lcd_8h_a22f0a1e06eef47597408d0b782fa49f6} 
+\index{lcd.h@{lcd.h}!LCD\_String@{LCD\_String}}
+\index{LCD\_String@{LCD\_String}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_String()}
+{\footnotesize\ttfamily void LCD\+\_\+\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra una cadena en la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Cadena a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}
+\label{lcd_8h_afedff6ea961e4641984f319129e3a1d4} 
+\index{lcd.h@{lcd.h}!LCD\_String\_xy@{LCD\_String\_xy}}
+\index{LCD\_String\_xy@{LCD\_String\_xy}!lcd.h@{lcd.h}}
+\doxysubsubsection{LCD\_String\_xy()}
+{\footnotesize\ttfamily void LCD\+\_\+\+String\+\_\+xy (\begin{DoxyParamCaption}\item[{char}]{row,  }\item[{char}]{pos,  }\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra una cadena en una posición específica de la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Fila en la que se mostrará el mensaje (0 o 1). \\
+\hline
+{\em pos} & Posición en la que se mostrará el mensaje (0-\/15). \\
+\hline
+{\em msg} & Cadena a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}

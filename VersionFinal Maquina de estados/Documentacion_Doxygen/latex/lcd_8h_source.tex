@@ -1,0 +1,38 @@
+\doxysection{lcd.\+h}
+\label{lcd_8h_source}\index{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.h@{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.h}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ File:\ \ \ lcd.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ Author:\ Logicos}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ Created\ on\ 22\ de\ septiembre\ de\ 2023,\ 15:21}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LCD\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LCD\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ RS\ \ \ RD0\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*PIN\ 0\ of\ PORTD\ is\ assigned\ for\ register\ select\ Pin\ of\ LCD*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ EN\ \ \ RD1\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*PIN\ 1\ of\ PORTD\ is\ assigned\ for\ enable\ Pin\ of\ LCD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ldata\ PORTD\ \ \ \ \ \ }\textcolor{comment}{/*PORTD(PD4-\/PD7)\ is\ assigned\ for\ LCD\ Data\ Output*/}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ LCD\_Port\ TRISD\ \ \ }\textcolor{comment}{/*define\ macros\ for\ PORTD\ Direction\ Register*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ LCD\_Init(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Initialize\ LCD*/}}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ LCD\_Command(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Send\ command\ to\ LCD*/}}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ LCD\_Char(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ x);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Send\ data\ to\ LCD*/}}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ LCD\_String(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Display\ data\ string\ on\ LCD*/}}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ LCD\_String\_xy(\textcolor{keywordtype}{char},\ \textcolor{keywordtype}{char}\ ,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ LCD\_Clear(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Clear\ LCD\ Screen*/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ LCD\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

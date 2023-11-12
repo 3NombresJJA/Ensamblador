@@ -1,0 +1,308 @@
+\doxysection{C\+:/\+Users/\+KADDEX/\+Desktop/\+Seguridad\+Maquina\+Estados/\+Seguridad\+\_\+\+Box.X/\+Main\+\_\+\+Seguridad.c File Reference}
+\label{_main___seguridad_8c}\index{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/Main\_Seguridad.c@{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/Main\_Seguridad.c}}
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$pic16f887.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}fuses.\+h"{}}\newline
+{\ttfamily \#include "{}lcd.\+h"{}}\newline
+{\ttfamily \#include "{}keypad.\+h"{}}\newline
+{\ttfamily \#include "{}Salida.\+h"{}}\newline
+{\ttfamily \#include "{}ADC.\+h"{}}\newline
+{\ttfamily \#include "{}Procesos.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ SENSOR\+\_\+\+IR}~RC1
+\item 
+\#define \textbf{ SENSOR\+\_\+\+HALL}~RC0
+\item 
+\#define \textbf{ SENSOR\+\_\+\+METAL}~RC2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ State} \{ \newline
+\textbf{ seguridad}
+, \textbf{ monitoreo}
+, \textbf{ bloqueado}
+, \textbf{ alarma}
+, \newline
+\textbf{ ambiente}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ main} ()
+\begin{DoxyCompactList}\small\item\em Función principal del programa. \end{DoxyCompactList}\item 
+void \textbf{ function\+\_\+clave\+\_\+\+Seguridad} (void)
+\begin{DoxyCompactList}\small\item\em Función para el manejo de la clave de seguridad. \end{DoxyCompactList}\item 
+void \textbf{ function\+\_\+e\+Bloqueado} (void)
+\begin{DoxyCompactList}\small\item\em Función para el manejo del estado bloqueado. \end{DoxyCompactList}\item 
+void \textbf{ function\+\_\+e\+Alarma} (void)
+\begin{DoxyCompactList}\small\item\em Función para el manejo del estado de alarma. \end{DoxyCompactList}\item 
+void \textbf{ function\+\_\+e\+Monitoreo} (void)
+\begin{DoxyCompactList}\small\item\em Función para el manejo del estado de monitoreo. \end{DoxyCompactList}\item 
+void \textbf{ function\+\_\+ambiental} (void)
+\begin{DoxyCompactList}\small\item\em Función para el manejo del estado ambiente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ State} \textbf{ Estado}
+\item 
+const char \textbf{ password} [6] =\{\textquotesingle{}2\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}2\textquotesingle{},\textquotesingle{}3\textquotesingle{},\textquotesingle{}9\textquotesingle{}\}
+\item 
+char \textbf{ pass\+\_\+user} [6]
+\item 
+unsigned char \textbf{ idx} = 0
+\item 
+unsigned char \textbf{ idx2} = 0
+\item 
+char \textbf{ buffer} [17]
+\item 
+char \textbf{ buffer2} [17]
+\item 
+unsigned char \textbf{ var\+\_\+sensor\+\_\+ir} = 0
+\item 
+unsigned char \textbf{ var\+\_\+sensor\+\_\+hall} =0
+\item 
+unsigned char \textbf{ var\+\_\+sensor\+\_\+metal} =0
+\item 
+int \textbf{ var\+\_\+sensor\+\_\+\+Temp} = 0
+\item 
+int \textbf{ var\+\_\+sensor\+\_\+\+Photo} =0
+\item 
+int \textbf{ var\+\_\+sensor\+\_\+\+Gas} =0
+\item 
+unsigned char \textbf{ intentos} = 0
+\item 
+unsigned char \textbf{ intent} =0
+\item 
+unsigned char \textbf{ intent2} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\label{_main___seguridad_8c_af5a0cbd62394243d503b14a4e5d686b8} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!SENSOR\_HALL@{SENSOR\_HALL}}
+\index{SENSOR\_HALL@{SENSOR\_HALL}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{SENSOR\_HALL}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+HALL~RC0}
+
+\label{_main___seguridad_8c_a35cb8e8eb292a6ac84d33580dcb369f8} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!SENSOR\_IR@{SENSOR\_IR}}
+\index{SENSOR\_IR@{SENSOR\_IR}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{SENSOR\_IR}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+IR~RC1}
+
+$<$ Archivo de definiciones de PIC16f887 \label{_main___seguridad_8c_a9621f3d5313e8270800e463fc6a85fd4} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!SENSOR\_METAL@{SENSOR\_METAL}}
+\index{SENSOR\_METAL@{SENSOR\_METAL}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{SENSOR\_METAL}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+METAL~RC2}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!State@{State}}
+\index{State@{State}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{State}
+{\footnotesize\ttfamily enum \textbf{ State}}
+
+Enumeración para los posibles estados del sistema. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{seguridad@{seguridad}!Main\_Seguridad.c@{Main\_Seguridad.c}}\index{Main\_Seguridad.c@{Main\_Seguridad.c}!seguridad@{seguridad}}}\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8a098ee684bee3aa1d7af43699501df665} 
+seguridad&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{monitoreo@{monitoreo}!Main\_Seguridad.c@{Main\_Seguridad.c}}\index{Main\_Seguridad.c@{Main\_Seguridad.c}!monitoreo@{monitoreo}}}\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8a85f96232a88f4c81b713ee18aaa1b6c1} 
+monitoreo&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bloqueado@{bloqueado}!Main\_Seguridad.c@{Main\_Seguridad.c}}\index{Main\_Seguridad.c@{Main\_Seguridad.c}!bloqueado@{bloqueado}}}\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8a2a75188bc33c8ddd33c0d22fcdae029b} 
+bloqueado&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{alarma@{alarma}!Main\_Seguridad.c@{Main\_Seguridad.c}}\index{Main\_Seguridad.c@{Main\_Seguridad.c}!alarma@{alarma}}}\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8a87cab433798ce5fdc94e2f76739e7bb5} 
+alarma&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ambiente@{ambiente}!Main\_Seguridad.c@{Main\_Seguridad.c}}\index{Main\_Seguridad.c@{Main\_Seguridad.c}!ambiente@{ambiente}}}\label{_main___seguridad_8c_a5d74787dedbc4e11c1ab15bf487e61f8aa5ed9d69b377b2d488c1a298220f1874} 
+ambiente&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\label{_main___seguridad_8c_ac28ab719bc26dc2ea514e4b0fded281a} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!function\_ambiental@{function\_ambiental}}
+\index{function\_ambiental@{function\_ambiental}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{function\_ambiental()}
+{\footnotesize\ttfamily void function\+\_\+ambiental (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para el manejo del estado ambiente. 
+
+Lectura photo
+
+Lectura Humo\label{_main___seguridad_8c_a5d93c0ff8dfb82652eb812856060a25b} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!function\_clave\_Seguridad@{function\_clave\_Seguridad}}
+\index{function\_clave\_Seguridad@{function\_clave\_Seguridad}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{function\_clave\_Seguridad()}
+{\footnotesize\ttfamily void function\+\_\+clave\+\_\+\+Seguridad (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para el manejo de la clave de seguridad. 
+
+Muestra el asterisco en el LCD16x2 cuando se presiona una tecla\label{_main___seguridad_8c_aeb840c505c9307d9b66eb1d39d729e3f} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!function\_eAlarma@{function\_eAlarma}}
+\index{function\_eAlarma@{function\_eAlarma}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{function\_eAlarma()}
+{\footnotesize\ttfamily void function\+\_\+e\+Alarma (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para el manejo del estado de alarma. 
+
+\label{_main___seguridad_8c_abfd6481eaedd6305741092b838fa2fd0} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!function\_eBloqueado@{function\_eBloqueado}}
+\index{function\_eBloqueado@{function\_eBloqueado}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{function\_eBloqueado()}
+{\footnotesize\ttfamily void function\+\_\+e\+Bloqueado (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para el manejo del estado bloqueado. 
+
+\label{_main___seguridad_8c_a5e4e2122124d4bc5595a27a1bc00412d} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!function\_eMonitoreo@{function\_eMonitoreo}}
+\index{function\_eMonitoreo@{function\_eMonitoreo}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{function\_eMonitoreo()}
+{\footnotesize\ttfamily void function\+\_\+e\+Monitoreo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Función para el manejo del estado de monitoreo. 
+
+\label{_main___seguridad_8c_acdef7a1fd863a6d3770c1268cb06add3} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!main@{main}}
+\index{main@{main}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily void main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Función principal del programa. 
+
+Configura Fosc = 8Mhz interno, Fuente de Fosc del sistema = interno
+
+$<$ Configura oscilador interno (FOSC = 8Mhz)
+
+$<$ Inicializa el LCD
+
+$<$ Inicializa el keypad
+
+$<$ Inicializa el ADC
+
+\doxysubsection{Variable Documentation}
+\label{_main___seguridad_8c_a72773c626fe010d1994aea71bc1a355d} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!buffer@{buffer}}
+\index{buffer@{buffer}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{buffer}
+{\footnotesize\ttfamily char buffer[17]}
+
+\label{_main___seguridad_8c_aa3231fcafb9e9db1a27b36c8c19de788} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!buffer2@{buffer2}}
+\index{buffer2@{buffer2}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{buffer2}
+{\footnotesize\ttfamily char buffer2[17]}
+
+\label{_main___seguridad_8c_ac34b83c639019d32117e2a1a3cfbc8aa} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!Estado@{Estado}}
+\index{Estado@{Estado}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{Estado}
+{\footnotesize\ttfamily enum \textbf{ State} Estado}
+
+\label{_main___seguridad_8c_ae269899a408c67c3c75ee0a9d95dc3c5} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!idx@{idx}}
+\index{idx@{idx}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{idx}
+{\footnotesize\ttfamily unsigned char idx = 0}
+
+\label{_main___seguridad_8c_a10a96a0b2250202e1f43ab0a4093b9b8} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!idx2@{idx2}}
+\index{idx2@{idx2}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{idx2}
+{\footnotesize\ttfamily unsigned char idx2 = 0}
+
+\label{_main___seguridad_8c_abdabaae2e1f36d5251b5a85e5c944373} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!intent@{intent}}
+\index{intent@{intent}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{intent}
+{\footnotesize\ttfamily unsigned char intent =0}
+
+\label{_main___seguridad_8c_ac32f173836d74c064f4521a9cc35e587} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!intent2@{intent2}}
+\index{intent2@{intent2}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{intent2}
+{\footnotesize\ttfamily unsigned char intent2 =0}
+
+\label{_main___seguridad_8c_af671d2fce2fdc020c113fe3b918846b6} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!intentos@{intentos}}
+\index{intentos@{intentos}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{intentos}
+{\footnotesize\ttfamily unsigned char intentos = 0}
+
+\label{_main___seguridad_8c_a9d05beb85676917d79546220ad25253c} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!pass\_user@{pass\_user}}
+\index{pass\_user@{pass\_user}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{pass\_user}
+{\footnotesize\ttfamily char pass\+\_\+user[6]}
+
+\label{_main___seguridad_8c_a0d4b3de8f6c2f180360bdf15af5d0c7d} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!password@{password}}
+\index{password@{password}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{password}
+{\footnotesize\ttfamily const char password[6] =\{\textquotesingle{}2\textquotesingle{},\textquotesingle{}0\textquotesingle{},\textquotesingle{}2\textquotesingle{},\textquotesingle{}3\textquotesingle{},\textquotesingle{}9\textquotesingle{}\}}
+
+\label{_main___seguridad_8c_a6bb7610bc2f1b00bca5a470c66537e9f} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_Gas@{var\_sensor\_Gas}}
+\index{var\_sensor\_Gas@{var\_sensor\_Gas}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_Gas}
+{\footnotesize\ttfamily int var\+\_\+sensor\+\_\+\+Gas =0}
+
+\label{_main___seguridad_8c_acb758889a10f8795e4c38e4d870867fa} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_hall@{var\_sensor\_hall}}
+\index{var\_sensor\_hall@{var\_sensor\_hall}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_hall}
+{\footnotesize\ttfamily unsigned char var\+\_\+sensor\+\_\+hall =0}
+
+\label{_main___seguridad_8c_ab825a345b75eb37bdffb9419cb95a27a} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_ir@{var\_sensor\_ir}}
+\index{var\_sensor\_ir@{var\_sensor\_ir}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_ir}
+{\footnotesize\ttfamily unsigned char var\+\_\+sensor\+\_\+ir = 0}
+
+\label{_main___seguridad_8c_a26542df2cd81b5dccbc67393f829f4ac} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_metal@{var\_sensor\_metal}}
+\index{var\_sensor\_metal@{var\_sensor\_metal}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_metal}
+{\footnotesize\ttfamily unsigned char var\+\_\+sensor\+\_\+metal =0}
+
+\label{_main___seguridad_8c_a895b5b354392a5f6427df7bafa6c8013} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_Photo@{var\_sensor\_Photo}}
+\index{var\_sensor\_Photo@{var\_sensor\_Photo}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_Photo}
+{\footnotesize\ttfamily int var\+\_\+sensor\+\_\+\+Photo =0}
+
+\label{_main___seguridad_8c_a5bed595c113e6acc728a4ee57c1ab042} 
+\index{Main\_Seguridad.c@{Main\_Seguridad.c}!var\_sensor\_Temp@{var\_sensor\_Temp}}
+\index{var\_sensor\_Temp@{var\_sensor\_Temp}!Main\_Seguridad.c@{Main\_Seguridad.c}}
+\doxysubsubsection{var\_sensor\_Temp}
+{\footnotesize\ttfamily int var\+\_\+sensor\+\_\+\+Temp = 0}
+

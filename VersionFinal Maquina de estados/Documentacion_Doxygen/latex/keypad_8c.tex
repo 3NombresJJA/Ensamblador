@@ -1,0 +1,68 @@
+\doxysection{C\+:/\+Users/\+KADDEX/\+Desktop/\+Seguridad\+Maquina\+Estados/\+Seguridad\+\_\+\+Box.X/keypad.c File Reference}
+\label{keypad_8c}\index{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/keypad.c@{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/keypad.c}}
+
+
+Handler Keypad 4x4.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include "{}keypad.\+h"{}}\newline
+{\ttfamily \#include "{}fuses.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ keypad\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa el teclado matricial 4x4. \end{DoxyCompactList}\item 
+char \textbf{ keypad\+\_\+getkey} (void)
+\begin{DoxyCompactList}\small\item\em Obtiene la tecla presionada en el teclado matricial 4x4. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handler Keypad 4x4. 
+
+\begin{DoxyDate}{Date}
+2023-\/11-\/12 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+$<$juan jose angel, juan camilo fernandez, rafeal parra$>$ 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{Copyright}
+Information contained herein is proprietary to and constitutes valuable confidential trade secrets of unicauca, and is subject to restrictions on use and disclosure.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Copyright (c) unicauca 2022. All rights reserved.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The copyright notices above do not evidence any actual or intended publication of this material. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Function Documentation}
+\label{keypad_8c_a8b64638b56e38f1c8315f50809b11081} 
+\index{keypad.c@{keypad.c}!keypad\_getkey@{keypad\_getkey}}
+\index{keypad\_getkey@{keypad\_getkey}!keypad.c@{keypad.c}}
+\doxysubsubsection{keypad\_getkey()}
+{\footnotesize\ttfamily char keypad\+\_\+getkey (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene la tecla presionada en el teclado matricial 4x4. 
+
+\begin{DoxyReturn}{Returns}
+Valor de la tecla presionada. 
+\end{DoxyReturn}
+\label{keypad_8c_a6251d77640c20427e931246b9b1547f0} 
+\index{keypad.c@{keypad.c}!keypad\_init@{keypad\_init}}
+\index{keypad\_init@{keypad\_init}!keypad.c@{keypad.c}}
+\doxysubsubsection{keypad\_init()}
+{\footnotesize\ttfamily void keypad\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa el teclado matricial 4x4. 
+
+Esta función se encarga de inicializar el teclado matricial 4x4. $<$ FILAS -\/ SALIDA
+
+$<$ COLUMNAS -\/ ENTRADA
+
+$<$ PORTB pull-\/ups are enabled by individual port latch values

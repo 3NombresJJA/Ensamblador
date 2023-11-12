@@ -1,0 +1,132 @@
+\doxysection{C\+:/\+Users/\+KADDEX/\+Desktop/\+Seguridad\+Maquina\+Estados/\+Seguridad\+\_\+\+Box.X/lcd.c File Reference}
+\label{lcd_8c}\index{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.c@{C:/Users/KADDEX/Desktop/SeguridadMaquinaEstados/Seguridad\_Box.X/lcd.c}}
+
+
+LCD 16x2 mode 4 bits.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include "{}lcd.\+h"{}}\newline
+{\ttfamily \#include "{}fuses.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ LCD\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Command} (unsigned char cmd)
+\begin{DoxyCompactList}\small\item\em Envía un comando a la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Char} (unsigned char dat)
+\begin{DoxyCompactList}\small\item\em Muestra un carácter en la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+String} (const char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Muestra una cadena en la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+String\+\_\+xy} (char row, char pos, const char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Muestra una cadena en una posición específica de la pantalla LCD 16x2. \end{DoxyCompactList}\item 
+void \textbf{ LCD\+\_\+\+Clear} (void)
+\begin{DoxyCompactList}\small\item\em Limpia la pantalla de la LCD 16x2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+LCD 16x2 mode 4 bits. 
+
+\begin{DoxyDate}{Date}
+2023-\/09-\/22 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+José Parra, juan camilo fernandez, juan jose angel {\texttt{ jrparra@unicauca.\+edu.\+co}} 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{Copyright}
+Information contained herein is proprietary to and constitutes valuable confidential trade secrets of unicauca, and is subject to restrictions on use and disclosure.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Copyright (c) unicauca 2023. All rights reserved.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The copyright notices above do not evidence any actual or intended publication of this material. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Function Documentation}
+\label{lcd_8c_a4d327799821093ffa93c41ec634b0ca6} 
+\index{lcd.c@{lcd.c}!LCD\_Char@{LCD\_Char}}
+\index{LCD\_Char@{LCD\_Char}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_Char()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{dat }\end{DoxyParamCaption})}
+
+
+
+Muestra un carácter en la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dat} & Carácter a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}
+\label{lcd_8c_ae60d0b62d7eb3fa31266c095d7b3c245} 
+\index{lcd.c@{lcd.c}!LCD\_Clear@{LCD\_Clear}}
+\index{LCD\_Clear@{LCD\_Clear}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_Clear()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Limpia la pantalla de la LCD 16x2. 
+
+Esta función limpia la pantalla de la LCD 16x2. \label{lcd_8c_a5deccc9bde4056e7354d6e4a02b24a41} 
+\index{lcd.c@{lcd.c}!LCD\_Command@{LCD\_Command}}
+\index{LCD\_Command@{LCD\_Command}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_Command()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Command (\begin{DoxyParamCaption}\item[{unsigned char}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Envía un comando a la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & Comando a ejecutar en la pantalla LCD (ejemplo\+: 0x01 para limpiar la pantalla, 0x0C para mostrar con cursor apagado). \\
+\hline
+\end{DoxyParams}
+\label{lcd_8c_aa53c9d40f3aa552a9974cd55ac510cb3} 
+\index{lcd.c@{lcd.c}!LCD\_Init@{LCD\_Init}}
+\index{LCD\_Init@{LCD\_Init}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_Init()}
+{\footnotesize\ttfamily void LCD\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa la pantalla LCD 16x2. 
+
+Esta función inicializa la pantalla LCD 16x2 con configuraciones específicas. \label{lcd_8c_ae82669e730dd8cd249730db12f4de7c4} 
+\index{lcd.c@{lcd.c}!LCD\_String@{LCD\_String}}
+\index{LCD\_String@{LCD\_String}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_String()}
+{\footnotesize\ttfamily void LCD\+\_\+\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra una cadena en la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Cadena a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}
+\label{lcd_8c_ac164102b5548d181e0865cca65dffd73} 
+\index{lcd.c@{lcd.c}!LCD\_String\_xy@{LCD\_String\_xy}}
+\index{LCD\_String\_xy@{LCD\_String\_xy}!lcd.c@{lcd.c}}
+\doxysubsubsection{LCD\_String\_xy()}
+{\footnotesize\ttfamily void LCD\+\_\+\+String\+\_\+xy (\begin{DoxyParamCaption}\item[{char}]{row,  }\item[{char}]{pos,  }\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra una cadena en una posición específica de la pantalla LCD 16x2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Fila en la que se mostrará el mensaje (0 o 1). \\
+\hline
+{\em pos} & Posición en la que se mostrará el mensaje (0-\/15). \\
+\hline
+{\em msg} & Cadena a mostrar en la pantalla LCD. \\
+\hline
+\end{DoxyParams}
